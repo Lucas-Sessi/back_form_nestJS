@@ -51,7 +51,7 @@ export class UserService {
       const findOneUser = await this.userRepository.findOne({
         where: { id }
       });
-      const findOneUserExisted = !!head(findOneUser)
+      const findOneUserExisted = !!head([findOneUser])
 
       if(!findOneUserExisted) {
         throw new HttpException('Usuário não encontrado!', HttpStatus.BAD_REQUEST)
